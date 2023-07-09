@@ -24,7 +24,7 @@ cd development-server-configuration/server/node-service(typescript-prisma)
 ## Step - 2
 ### Setting Environment for Setup
 
-Here DIR_PATH is the directory of your node service. You can manually give it or run on the directory.
+Here DIR_PATH is the directory of your node server. You can manually give it or run on the node server directory.
 
 ```bash
 DIR_PATH=$(pwd)
