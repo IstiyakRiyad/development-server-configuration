@@ -1,5 +1,5 @@
-# Different Database Docker Configurations
-Here will be different docker compose files for configuring database.
+# Different Server Configurations
+Here will be different server configuration using linux service.
 
 ## Documentation Links
-* [Redis & Postgres](redis_postgres/README.md)
+* [Node-Service(typescript & prisma)](node-service(typescript-prisma)/README.md)
