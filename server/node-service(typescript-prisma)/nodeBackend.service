@@ -1,0 +1,15 @@
+[Unit]
+Description=English Moja Backend Service
+Documentation=https://englishmojabd.com
+
+[Service]
+ExecStartPre=npm install --prefix /home/ubuntu/server
+ExecStartPre=npm run generate --prefix /home/ubuntu/server
+ExecStartPre=npm run dbPush --prefix /home/ubuntu/server
+ExecStartPre=npm run build --prefix /home/ubuntu/server
+ExecStart=npm start --prefix /home/ubuntu/server
+Restart=on-failure
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
