@@ -3,7 +3,7 @@
 Here this compose file will create one redis database and one postgres database on the machine. 
 All login credentials will be set on the .env file.
 
-## Step - 1
+## Start using shell file
 
 ### Clone the git repo
 ``` bash
@@ -21,7 +21,7 @@ cd development-server-configuration/server/node-service(typescript-prisma)
 ./startService.sh /home/ubuntu/server
 ```
 
-## Step - 2
+## Start using direct script
 ### Setting Environment for Setup
 
 Here DIR_PATH is the directory of your node server. You can manually give it or run on the node server directory.
