@@ -1,4 +1,4 @@
-# Redis & Postgres Configuration:
+# Node Server with Typescript & Prisma Configuraton:
 
 Here this compose file will create one redis database and one postgres database on the machine. 
 All login credentials will be set on the .env file.
