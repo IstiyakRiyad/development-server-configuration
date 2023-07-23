@@ -1,0 +1,52 @@
+services:
+  swag:
+    image: lscr.io/linuxserver/swag
+    container_name: swag
+    cap_add:
+      - NET_ADMIN
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Dhaka
+      - URL=sasthotech.com
+      - SUBDOMAINS=api
+      - VALIDATION=http
+    volumes:
+      - ./swag:/config
+      - ./proxy:/config/nginx/site-confs
+    ports:
+      - 443:443
+      - 80:80
+    restart: unless-stopped
+    depends_on:
+      - server
+
+
+  server:
+    container_name: node-server
+    build:
+      context: ./server-files
+      dockerfile: ../server/Dockerfile
+    restart: always
+    depends_on:
+      - postgres
+    volumes:
+      - ./data:/usr/app/data
+    
+
+  postgres:
+    container_name: postgres-database
+    image: postgres:latest
+    # Private container
+    # ports:
+    #   - 5432:5432
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    restart: always
+    volumes:
+      - postgresData:/var/lib/postgresql/data
+
+
+volumes:
+  postgresData: {}
