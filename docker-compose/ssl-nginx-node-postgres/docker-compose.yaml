@@ -10,7 +10,9 @@ services:
       - TZ=Asia/Dhaka
       - URL=sasthotech.com
       - SUBDOMAINS=api
+      - ONLY_SUBDOMAINS=true
       - VALIDATION=http
+      - STAGING=false
     volumes:
       - ./swag:/config
       - ./proxy:/config/nginx/site-confs
