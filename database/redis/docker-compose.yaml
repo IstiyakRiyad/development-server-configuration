@@ -1,0 +1,13 @@
+services:
+  redis:
+    container_name: redis-stack-server
+    image: redis/redis-stack-server:latest
+    ports:
+      - 6379:6379
+    restart: always
+    volumes:
+      - redisDataStack:/data
+
+volumes:
+  redisDataStack: {}
+
