@@ -1,14 +1,25 @@
 services:
   redis:
-    container_name: redis-stack
-    image: redis/redis-stack:latest
+    container_name: redis-stack-server
+    image: redis/redis-stack-server:latest
     ports:
       - 6379:6379
-      - 8001:8001
     restart: always
     volumes:
       - redisDataStack:/data
 
+  redisinsight:
+    container_name: redisinsight
+    image: redis/redisinsight:latest
+    ports:
+      - 5540:5540
+    restart: always
+    depends_on:
+      - redis
+    volumes:
+      - redisInsightData:/data
+
 volumes:
   redisDataStack: {}
+  redisInsightData: {}
 
