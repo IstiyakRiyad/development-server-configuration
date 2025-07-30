@@ -1,0 +1,16 @@
+services:
+  emqx:
+    container_name: emqx
+    hostname: emqx
+    image: emqx/emqx:latest
+    ports:
+      - 1883:1883
+      - "18083:18083"
+    environment:
+      - EMQX_NAME=emqx
+      - EMQX_HOST=node1.emqx.io
+      - EMQX_DASHBOARD__DEFAULT_USERNAME=admin
+      - EMQX_DASHBOARD__DEFAULT_PASSWORD=public
+    volumes:
+      - ./mosquitto:/mosquitto
+    restart: always
