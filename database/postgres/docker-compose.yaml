@@ -9,7 +9,7 @@ services:
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     restart: always
     volumes:
-      - postgresData:/var/lib/postgresql/data
+      - postgresData:/var/lib/postgresql
 
   pgadmin4:
     image: elestio/pgadmin:latest
@@ -19,9 +19,11 @@ services:
       PGADMIN_DEFAULT_PASSWORD: ${ADMIN_PASSWORD}
       PGADMIN_LISTEN_PORT: 8080
     ports:
-      - "8082:8080"
+      - "4002:8080"
     volumes:
       - ./servers.json:/pgadmin4/servers.json
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
 
 volumes:
   postgresData: {}

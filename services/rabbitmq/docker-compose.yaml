@@ -4,7 +4,7 @@ services:
     hostname: rabbit
     image: rabbitmq:management
     ports:
-      - 8088:15672
+      - 4004:15672
       - 5672:5672
     environment:
       RABBITMQ_DEFAULT_USER: ${RABBITMQ_DEFAULT_USER}

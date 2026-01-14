@@ -1,0 +1,20 @@
+services:
+  consul:
+    image: consul:1.15
+    container_name: consul-kv
+    restart: always
+    ports:
+      - 4003:8500
+      # - 8500:8500
+    command: >
+      agent -server -ui
+      -client=0.0.0.0
+      -bootstrap-expect=1
+      -data-dir=/consul/data
+      -log-level=INFO
+    volumes:
+      - consulKVData:/consul/data
+      - ./consul-config.json:/consul/config/consul-config.json
+
+volumes:
+  consulKVData: {}
